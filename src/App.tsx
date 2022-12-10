@@ -110,10 +110,10 @@ export default function App() {
         {/* Title */}
         <Title />
         <img
-          src='https://images.unsplash.com/photo-1522770179533-24471fcdba45'
+          src='https://raw.githubusercontent.com/j-rayhan/test-app-mui/main/src/assets/image/bg.png'
           alt='camera'
           style={{
-            marginTop: 28,
+            marginTop: '4rem',
             width: '100%',
             height: '70vh',
           }}
