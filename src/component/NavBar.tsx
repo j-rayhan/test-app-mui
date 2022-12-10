@@ -1,10 +1,12 @@
 import * as React from 'react'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import {navItems} from '../utils/dumydb'
+import { navItems } from '../utils/dumydb'
+import { drawerWidth, themeBgColor } from '../utils/constant'
 import {
   AppBar,
   Button,
+  Container,
   Divider,
   Drawer,
   Grid,
@@ -16,8 +18,8 @@ import {
   Toolbar,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-
-const drawerWidth = 240
+import AdbIcon from '@mui/icons-material/Adb'
+import ButtonX from './ButtonX'
 
 interface Props {
   /**
@@ -57,48 +59,88 @@ function Header(props: Props) {
 
   return (
     <>
-      {/* HEADER */}
-      <AppBar component='nav'>
-        <Toolbar>
-          <Grid container spacing={2}>
-            <Grid item xs={2}>
-              <IconButton
-                color='inherit'
-                aria-label='open drawer'
-                edge='start'
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' } }}
-              >
-                <MenuIcon />
-              </IconButton>
+      <AppBar component={'nav'}>
+        {/* HEADER */}
+        <Container maxWidth='lg' style={{ background: themeBgColor }}>
+          <Toolbar disableGutters style={{ justifyContent: 'space-between' }}>
+            <Typography component={'div'} display='flex' alignItems={'center'}>
+              <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
               <Typography
                 variant='h6'
-                component='div'
-                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                noWrap
+                component='a'
+                href='/'
+                sx={{
+                  mr: 2,
+                  display: { xs: 'none', md: 'flex' },
+                  fontFamily: 'monospace',
+                  fontWeight: 700,
+                  letterSpacing: '.3rem',
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
               >
                 LOGO
               </Typography>
-            </Grid>
-            <Grid item xs={4} sm={6} md={8}>
-              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                {navItems.map((item) => (
-                  <Button
-                    key={item}
-                    sx={{ color: '#fff', textTransform: 'none' }}
-                  >
-                    {item}
-                  </Button>
-                ))}
-              </Box>
-            </Grid>
+            </Typography>
 
-            <Grid item xs={4} sm={4} md={2}>
-              <Button variant='contained' style={{ borderRadius: 18 }}>
-                Join Beta
-              </Button>
-            </Grid>
-          </Grid>
-        </Toolbar>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size='large'
+                aria-label='account of current user'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
+                onClick={handleDrawerToggle}
+                color='inherit'
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
+            <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+            <Typography
+              variant='h5'
+              noWrap
+              component='a'
+              href=''
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              LOGO
+            </Typography>
+            <Box
+              sx={{ ml: 3, display: { xs: 'none', sm: 'none', md: 'block' } }}
+            >
+              {navItems.map((item) => (
+                <Button
+                  key={item}
+                  sx={{ color: '#fff', textTransform: 'none' }}
+                >
+                  {item}
+                </Button>
+              ))}
+            </Box>
+
+            <Box sx={{ flexGrow: 0 }}>
+              <ButtonX
+                label='Join Beta'
+                onClick={() => {}}
+                style={{
+                  borderRadius: 18,
+                  textTransform: 'none',
+                  padding: '4px 1.2rem',
+                }}
+              />
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
       <Box component='nav'>
         <Drawer
@@ -110,7 +152,7 @@ function Header(props: Props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { sm: 'block', md: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
@@ -124,4 +166,4 @@ function Header(props: Props) {
   )
 }
 
-export default Header;
+export default Header

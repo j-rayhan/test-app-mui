@@ -2,36 +2,34 @@ import * as React from 'react'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
-import {
-  Button,
-  Grid,
-  IconButton,
-} from '@mui/material'
+import { Button, Grid, IconButton } from '@mui/material'
 import { GitHub, GppGood } from '@mui/icons-material'
-import {NavBar, Service, Works} from './component'
+import { ButtonX, NavBar, Service, Works } from './component'
+import { buttonBgColor } from './utils/constant'
 
 function Title() {
   return (
     <>
-      <Typography variant='h4' mt={12} color='#556cd6' align='center'>
-        Rewind <span style={{ color: 'black' }}>your screen</span>
+      <Typography
+        variant='h4'
+        mt={12}
+        fontWeight='900'
+        color='#645af3'
+        align='center'
+      >
+        Rewind <span style={{ color: 'white' }}>your screen</span>
       </Typography>
-      <Typography variant='body2' mt={2} color='text.primary' align='center'>
+      <Typography variant='body2' mt={4} color='white' align='center'>
         Why double-back when you can capture the first time?
         <br />
         Playback and share exactly what happened with share exactly what
         happened.
       </Typography>
-      <Typography variant='body2' mt={2} color='text.secondary' align='center'>
+      <Typography variant='body2' mt={3} color='white' align='center'>
         We're currently in <span style={{ color: '#556cd6' }}> BETA</span>
       </Typography>
       <Typography mt={2} component='div' align='center'>
-        <Button
-          variant='contained'
-          style={{ padding: '8px 50px', borderRadius: 18 }}
-        >
-          Join Now
-        </Button>
+        <ButtonX label="Join Now" onClick={() => {}} />
       </Typography>
     </>
   )
@@ -40,15 +38,22 @@ function Title() {
 function Title2() {
   return (
     <>
-      <Typography variant='h4' mt={3} color='#556cd6' align='center'>
-        <span style={{ color: 'black' }}>The </span>{' '}
-        <span style={{ fontStyle: 'italic' }}> Fastest </span>
-        <span style={{ color: 'black' }}>way to add context</span>
+      <Typography
+        variant='h4'
+        fontSize={'1.6rem'}
+        mt={4}
+        color='white'
+        fontWeight={'700'}
+        align='center'
+      >
+        The
+        <span style={{ marginRight: '0.2em', fontStyle: 'italic', color: '#645af3' }}> Fastest </span>
+        way to add context
       </Typography>
-      <Typography variant='body2' mt={2} color='text.primary' align='center'>
-        Don't stop when you can capture the first time a meeting.
+      <Typography variant='body2' mt={1} color='white' align='center'>
+        Don't stop record a screencast, schedule a meeting.
         <br />
-        Playback and share exactly what happened exactly what happened.
+        Replayable creates a library of what can share instantly.
       </Typography>
     </>
   )
@@ -57,11 +62,11 @@ function Title2() {
 function Title3() {
   return (
     <>
-      <Typography variant='h4' mt={4} color='#556cd6' align='center'>
-        <span style={{ color: 'black' }}>Works </span> everywhere
-        <span style={{ color: 'black' }}> you do</span>
+      <Typography variant='h4' fontWeight={'900'} mt={5} color='white' align='center'>
+        Works 
+        <span style={{ color: '#645af3' }}> everywhere </span> you do
       </Typography>
-      <Typography variant='body2' mt={2} color='text.primary' align='center'>
+      <Typography variant='body2' mt={1.2} color='white' align='center'>
         It does no't get faster than this Instantly embed replays within
         <br />
         the development tools you already use.
@@ -77,7 +82,7 @@ function Title3() {
           color='inherit'
           aria-label='open drawer'
           edge='start'
-          sx={{ mr: 2 }}
+          sx={{ mr: 2, color: 'white', fontWeight: '700' }}
         >
           <GppGood sx={{ mr: 1 }} /> Jira Software
         </IconButton>
@@ -85,18 +90,13 @@ function Title3() {
           color='inherit'
           aria-label='open drawer'
           edge='start'
-          sx={{ ml: 2 }}
+          sx={{ ml: 2, color: 'white', fontWeight: '700' }}
         >
           <GitHub sx={{ mr: 1 }} /> GitHub
         </IconButton>
       </Typography>
       <Typography mt={2} component='div' align='center'>
-        <Button
-          variant='contained'
-          style={{ padding: '8px 50px', borderRadius: 18 }}
-        >
-          Join Now
-        </Button>
+        <ButtonX label="Join Now" onClick={() => {}} />
       </Typography>
     </>
   )
@@ -106,12 +106,7 @@ export default function App() {
   return (
     <>
       <Container maxWidth='lg'>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
-            <NavBar />
-          </Grid>
-          <Grid item xs={2} />
-        </Grid>
+        <NavBar />
         {/* Title */}
         <Title />
         <img

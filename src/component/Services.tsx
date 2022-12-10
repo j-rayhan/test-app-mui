@@ -7,13 +7,17 @@ function Service() {
     <Grid mt={3} container spacing={3}>
       {supports.map(({ id, title, length, alias }) => (
         <Grid item xs key={id}>
-          <Box bgcolor={'aliceblue'} minHeight={120} p={1}>
-            <Typography variant='h5' color='#556cd6'>
+          <Box minHeight={120} p={1}>
+            <Typography variant='h5' fontSize={'1.2em'} color='#645af3'>
               {title}
             </Typography>
-            <Typography variant='h4' color='text.secondary'>
-              {length}{' '}
-              <span style={{ fontSize: '0.8rem', alignItems: 'center' }}>
+            <Typography variant='h4' my={1} fontWeight={'900'} color='white' style={{
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: id === 5 ? '3.7rem' : '2rem',
+            }}>
+              {length}
+              <span style={{ marginLeft: 4, fontWeight: '400', fontSize: '0.8rem' }}>
                 {alias}
               </span>
             </Typography>
