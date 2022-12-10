@@ -37,7 +37,7 @@ function Header(props: Props) {
   }
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ color: '#FFFFFF', textAlign: 'center' }}>
       <Typography variant='h6' sx={{ my: 2 }}>
         LOGO
       </Typography>
@@ -48,6 +48,7 @@ function Header(props: Props) {
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item} />
             </ListItemButton>
+            <Divider />
           </ListItem>
         ))}
       </List>
@@ -156,6 +157,7 @@ function Header(props: Props) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              backgroundColor: themeBgColor,
             },
           }}
         >
